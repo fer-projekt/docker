@@ -10,13 +10,27 @@ A docker-compose workflow for local Laravel development
 git clone -b 9.x https://github.com/laravel/laravel.git <project_name>
 ```
 
-2. Copy `docker-compose.yml` file to your project root path
+2. Enter your project directory
 
 ```sh
-curl -o filename raw-link-to-file
+cd <project_name>
 ```
 
-3. From your project directory, start up your application by running
+3. Create .env file
+
+```sh
+cp .env.example .env
+```
+
+4. Change DB_HOST to `mysql` in the .env file
+
+5. Copy `docker-compose.yml`
+
+```sh
+curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/9/docker-compose.yml
+```
+
+3. Start up your application by running
 
 ```sh
 docker-compose up -d

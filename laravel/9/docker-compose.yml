@@ -21,10 +21,10 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     environment: 
-        MYSQL_DATABASE: laravel
-        MYSQL_ROOT_PASSWORD: password
-        MYSQL_PASSWORD: password
-        MYSQL_USER: user
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes: 
         - ./.db_data:/var/lib/mysql
     ports: 
