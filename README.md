@@ -22,7 +22,20 @@ cd <project_name>
 cp .env.example .env
 ```
 
-4. Change DB_HOST to `mysql` in the .env file
+4. Add the following lines:
+
+```
+APP_URL=http://localhost:8080
+
+...
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=<db_name>
+DB_USERNAME=user
+DB_PASSWORD=password
+```
 
 5. Copy `docker-compose.yml`
 

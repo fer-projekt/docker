@@ -20,12 +20,11 @@ services:
     platform: linux/x86_64
     image: mysql:5.7
     restart: unless-stopped
-    environment: 
-        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    environment:
         MYSQL_DATABASE: ${DB_DATABASE}
         MYSQL_USER: ${DB_USERNAME}
         MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes: 
-        - ./.db_data:/var/lib/mysql
+        - ./.data:/var/lib/mysql
     ports: 
         - "3306:3306"
