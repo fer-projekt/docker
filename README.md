@@ -47,12 +47,12 @@ DB_PASSWORD=password
 
 Laravel 9
 ```sh
-curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/9/docker-compose.yaml
+curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/9/docker-compose.yml
 ```
 
 Laravel 5.5
 ```sh
-curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/5.5/docker-compose.yaml
+curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/5.5/docker-compose.yml
 ```
 
 6. Start up your application by running
