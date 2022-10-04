@@ -30,19 +30,19 @@ cp .env.example .env
 curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/9/docker-compose.yml
 ```
 
-3. Start up your application by running
+6. Start up your application by running
 
 ```sh
 docker-compose up -d
 ```
 
-4. Enter the container bash
+7. Enter the container bash
 
 ```sh
 docker-compose exec app bash
 ```
 
-5. Enjoy the development
+8. Enjoy the development
 
 ## Licence
 
