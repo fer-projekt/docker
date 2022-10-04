@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    image: ferprojekt/php:7.2
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/
+
+  nginx:
+    image: ferprojekt/nginx
+    restart: unless-stopped
+    volumes_from:
+      - app
+    ports:
+      - 8080:80
+
+  mysql:
+    # https://stackoverflow.com/questions/65456814/docker-apple-silicon-m1-preview-mysql-no-matching-manifest-for-linux-arm64-v8
+    platform: linux/x86_64
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes: 
+        - ./.data:/var/lib/mysql
+    ports: 
+        - "3306:3306"

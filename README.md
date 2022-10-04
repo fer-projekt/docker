@@ -2,12 +2,18 @@
 
 A docker-compose workflow for local Laravel development
 
-## Install Laravel 9
+## Install Laravel
 
 1. Clone Laravel application
 
+Laravel 9
 ```sh
 git clone -b 9.x https://github.com/laravel/laravel.git <project_name>
+```
+
+Laravel 5.5
+```sh
+git clone -b 5.5 https://github.com/laravel/laravel.git <project_name>
 ```
 
 2. Enter your project directory
@@ -39,8 +45,14 @@ DB_PASSWORD=password
 
 5. Copy `docker-compose.yml`
 
+Laravel 9
 ```sh
 curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/9/docker-compose.yml
+```
+
+Laravel 5.5
+```sh
+curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/5.5/docker-compose.yml
 ```
 
 6. Start up your application by running
