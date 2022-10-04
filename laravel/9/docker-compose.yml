@@ -5,7 +5,7 @@ services:
     image: ferprojekt/php:8.1
     restart: unless-stopped
     volumes:
-      - ./src:/var/www/
+      - ./:/var/www/
 
   nginx:
     image: ferprojekt/nginx
