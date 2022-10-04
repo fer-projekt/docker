@@ -42,7 +42,7 @@ docker-compose up -d
 docker-compose exec app bash
 ```
 
-8. Enjoy the development
+8. Install laravel and enjoy the development results on [localhost:8080](http://localhost:8080)
 
 ## Licence
 
