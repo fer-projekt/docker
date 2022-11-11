@@ -11,6 +11,11 @@ Laravel 9
 git clone -b 9.x https://github.com/laravel/laravel.git <project_name>
 ```
 
+Laravel 6
+```sh
+git clone -b 6.x https://github.com/laravel/laravel.git <project_name>
+```
+
 Laravel 5.5
 ```sh
 git clone -b 5.5 https://github.com/laravel/laravel.git <project_name>
@@ -38,7 +43,7 @@ APP_URL=http://localhost:8080
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=<db_name>
+DB_DATABASE=database
 DB_USERNAME=user
 DB_PASSWORD=password
 ```
@@ -50,6 +55,11 @@ Laravel 9
 curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/9/docker-compose.yml
 ```
 
+Laravel 6
+```sh
+curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/6/docker-compose.yml
+```
+
 Laravel 5.5
 ```sh
 curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/5.5/docker-compose.yml
@@ -58,7 +68,7 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/
 6. Start up your application by running
 
 ```sh
-docker-compose up -d
+docker-compose up -d server
 ```
 
 7. Enter the container bash

@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    image: ferprojekt/php:8.1
+    image: ferprojekt/php:7.3
     container_name: app
     restart: unless-stopped
     volumes:
@@ -24,7 +24,7 @@ services:
     # https://stackoverflow.com/questions/65456814/docker-apple-silicon-m1-preview-mysql-no-matching-manifest-for-linux-arm64-v8
     platform: linux/x86_64
     image: mysql:5.7
-    container_name: myslq
+    container_name: mysql
     restart: unless-stopped
     environment:
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
