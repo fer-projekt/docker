@@ -71,13 +71,40 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/
 docker-compose up -d server
 ```
 
-7. Enter the container bash
+7. Install Laravel
 
 ```sh
-docker-compose exec app bash
+docker-compose run --rm composer update
+docker-compose run --rm artisan key:generate
 ```
 
-8. Install laravel and enjoy the development results on [localhost:8080](http://localhost:8080)
+8. Compiling Assets
+
+This configuration should be able to compile assets with both laravel mix and vite. In order to get started, you first need to add  --host 0.0.0.0 after the end of your relevant dev command in package.json. So for example, with a Laravel project using Vite, you should see:
+
+```sh
+"scripts": {
+  "dev": "vite --host 0.0.0.0",
+  "build": "vite build"
+},
+```
+
+Then, run the following commands to install your dependencies and start the dev server:
+
+```sh
+docker-compose run --rm npm install
+docker-compose run --rm --service-ports npm run dev
+```
+
+After that, you should be able to use @vite directives to enable hot-module reloading on your local Laravel application.
+
+Want to build for production? Simply run:
+
+```sh
+docker-compose run --rm npm run build
+```
+
+9. Enjoy the development results on [localhost:8080](http://localhost:8080)
 
 ## Licence
 
