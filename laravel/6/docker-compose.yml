@@ -1,5 +1,8 @@
 version: '3'
 
+networks:
+  laravel:
+
 services:
   app:
     image: ferprojekt/php:7.3
@@ -7,6 +10,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./:/var/www/
+    networks:
+      - laravel
 
   server:
     image: ferprojekt/nginx
@@ -19,6 +24,8 @@ services:
       - app
     ports:
       - 8080:80
+    networks:
+      - laravel
 
   mysql:
     # https://stackoverflow.com/questions/65456814/docker-apple-silicon-m1-preview-mysql-no-matching-manifest-for-linux-arm64-v8
@@ -35,3 +42,38 @@ services:
         - ./.data:/var/lib/mysql
     ports: 
         - "3306:3306"
+    networks:
+      - laravel
+
+  composer:
+    image: ferprojekt/7.3
+    container_name: composer
+    volumes_from:
+      - app
+    working_dir: /var/www
+    entrypoint: ['composer', '--ignore-platform-reqs']
+    networks:
+      - laravel
+
+  artisan:
+    image: ferprojekt/7.3
+    container_name: artisan
+    volumes_from:
+      - app
+    working_dir: /var/www
+    entrypoint: ['php', '/var/www/artisan']
+    networks:
+      - laravel
+
+  npm:
+    image: node:16
+    container_name: npm
+    volumes_from:
+      - app
+    ports:
+      - 3000:3000
+      - 3001:3001
+    working_dir: /var/www
+    entrypoint: ['npm']
+    networks:
+      - laravel
