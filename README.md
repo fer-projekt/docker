@@ -116,7 +116,9 @@ Want to build for production? Simply run:
 docker-compose run --rm npm run build
 ```
 
-### 9. Enjoy the development results on [localhost:8080](http://localhost:8080)
+### 9. Enjoy the development results 
+
+Go to: [localhost:8080](http://localhost:8080)
 
 ## Licence
 
