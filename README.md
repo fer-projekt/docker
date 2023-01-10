@@ -4,7 +4,7 @@ A docker-compose workflow for local Laravel development
 
 ## Install Laravel
 
-1. Clone Laravel application
+### 1. Clone Laravel application
 
 Laravel 9
 ```sh
@@ -21,19 +21,19 @@ Laravel 5.5
 git clone -b 5.5 https://github.com/laravel/laravel.git <project_name>
 ```
 
-2. Enter your project directory
+### 2. Enter your project directory
 
 ```sh
 cd <project_name>
 ```
 
-3. Create .env file
+### 3. Create .env file
 
 ```sh
 cp .env.example .env
 ```
 
-4. Add the following lines:
+### 4. Add the following lines:
 
 ```
 APP_URL=http://localhost:8080
@@ -54,7 +54,7 @@ and add `.data` directory to the `.gitignore` file:
 /.data
 ```
 
-5. Copy `docker-compose.yml`
+### 5. Copy `docker-compose.yml`
 
 Laravel 9
 ```sh
@@ -71,13 +71,13 @@ Laravel 5.5
 curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/5.5/docker-compose.yml
 ```
 
-6. Start up your application by running
+### 6. Start up your application by running
 
 ```sh
 docker-compose up -d server
 ```
 
-7. Install Laravel
+### 7. Install Laravel
 
 ```sh
 docker-compose run --rm composer update
@@ -87,7 +87,7 @@ docker-compose run --rm composer update
 docker-compose run --rm artisan key:generate
 ```
 
-8. Compiling Assets
+### 8. Compiling Assets
 
 This configuration should be able to compile assets with both laravel mix and vite. In order to get started, you first need to add  --host 0.0.0.0 after the end of your relevant dev command in package.json. So for example, with a Laravel project using Vite, you should see:
 
@@ -116,7 +116,7 @@ Want to build for production? Simply run:
 docker-compose run --rm npm run build
 ```
 
-9. Enjoy the development results on [localhost:8080](http://localhost:8080)
+### 9. Enjoy the development results on [localhost:8080](http://localhost:8080)
 
 ## Licence
 
