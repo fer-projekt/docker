@@ -48,6 +48,12 @@ DB_USERNAME=user
 DB_PASSWORD=password
 ```
 
+and add `.data` directory to the `.gitignore` file:
+
+```
+/.data
+```
+
 5. Copy `docker-compose.yml`
 
 Laravel 9
@@ -75,6 +81,9 @@ docker-compose up -d server
 
 ```sh
 docker-compose run --rm composer update
+```
+
+```sh
 docker-compose run --rm artisan key:generate
 ```
 
@@ -93,6 +102,9 @@ Then, run the following commands to install your dependencies and start the dev 
 
 ```sh
 docker-compose run --rm npm install
+```
+
+```sh
 docker-compose run --rm --service-ports npm run dev
 ```
 
