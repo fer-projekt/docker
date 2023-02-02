@@ -46,7 +46,7 @@ services:
       - laravel
 
   composer:
-    image: ferprojekt/7.2
+    image: ferprojekt/php:7.2
     container_name: composer
     volumes_from:
       - app
@@ -56,7 +56,7 @@ services:
       - laravel
 
   artisan:
-    image: ferprojekt/7.2
+    image: ferprojekt/php:7.2
     container_name: artisan
     volumes_from:
       - app
