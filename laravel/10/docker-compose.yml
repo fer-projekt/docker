@@ -1,0 +1,80 @@
+version: '3'
+
+networks:
+  laravel:
+
+services:
+  app:
+    image: ferprojekt/php:8.1
+    container_name: app
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/
+    networks:
+      - laravel
+
+  server:
+    image: ferprojekt/nginx
+    container_name: server
+    restart: unless-stopped
+    depends_on:
+      - app
+      - mysql
+    volumes_from:
+      - app
+    ports:
+      - 8080:80
+    networks:
+      - laravel
+
+  mysql:
+    # https://stackoverflow.com/questions/65456814/docker-apple-silicon-m1-preview-mysql-no-matching-manifest-for-linux-arm64-v8
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: myslq
+    restart: unless-stopped
+    environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes: 
+        - ./.data:/var/lib/mysql
+    ports: 
+        - "3306:3306"
+    networks:
+      - laravel
+
+  composer:
+    image: ferprojekt/php:8.1
+    container_name: composer
+    volumes_from:
+      - app
+    working_dir: /var/www
+    entrypoint: ['composer', '--ignore-platform-reqs']
+    networks:
+      - laravel
+
+  artisan:
+    image: ferprojekt/php:8.1
+    container_name: artisan
+    volumes_from:
+      - app
+    working_dir: /var/www
+    entrypoint: ['php', '/var/www/artisan']
+    networks:
+      - laravel
+
+  npm:
+    image: node:16
+    container_name: npm
+    volumes_from:
+      - app
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 5173:5173
+    working_dir: /var/www
+    entrypoint: ['npm']
+    networks:
+      - laravel

@@ -6,6 +6,11 @@ A docker-compose workflow for local Laravel development
 
 ### 1. Clone Laravel application
 
+Laravel 10
+```sh
+git clone -b 10.x https://github.com/laravel/laravel.git <project_name>
+```
+
 Laravel 9
 ```sh
 git clone -b 9.x https://github.com/laravel/laravel.git <project_name>
@@ -55,6 +60,11 @@ and add `.data` directory to the `.gitignore` file:
 ```
 
 ### 5. Copy `docker-compose.yml`
+
+Laravel 10
+```sh
+curl -o docker-compose.yml https://raw.githubusercontent.com/fer-projekt/docker/main/laravel/10/docker-compose.yml
+```
 
 Laravel 9
 ```sh
